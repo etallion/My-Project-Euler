@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>PE-Q2</title>
+</head>
+<body>
+    
+<div id="displayDiv"></div>
+
+ <script>
+
+var displayDiv = document.getElementById("displayDiv");
+
+var end = 4000000;
+var total = 0;
+
+ function sumEvenFibonacci(end){
+    
+    var totalSum = 0;
+
+        //loop through and check each number in the range, 
+        //in our example (Question 1) we are evaluating postive numbers below 1000
+        var i = 1;
+        var next = 2;
+        var temp;
+        while(i < end){
+            console.log(i)
+            //check if index is even by using the modulus with a result of zero
+            if(i % 2 === 0){
+                console.log("even>> " + i);
+                totalSum += i;
+                console.log("Sum>> " + totalSum);
+            }  
+            temp = i;
+            i = next;
+            next += temp;
+        } 
+
+    return totalSum;
+ }
+
+total = sumEvenFibonacci(end);
+
+displayDiv.innerHTML = "Question 2: Find the sum of all the even fibonacci below 4,000,000. <br> Answer: " + total;
+ 
+
+ </script>   
+</body>
+</html>

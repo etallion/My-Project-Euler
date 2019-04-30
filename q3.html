@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>PE-Q2</title>
+</head>
+<body>
+    
+<div id="displayDiv"></div>
+
+ <script>
+
+//Question 3
+//The prime factors of 13195 are 5, 7, 13 and 29.
+//What is the largest prime factor of the number 600851475143 ?
+
+var displayDiv = document.getElementById("displayDiv");
+
+//------------------------------------------------------------------------------------------
+function largest(){  //unique-prime-factorization theorem
+    var evaluating = 600851475143;
+    var tempNum = evaluating;
+    var largestFactor = 0;
+    
+    var counter = 2;
+    
+    while (counter * counter <= tempNum) { //check up squareroot
+        console.log(tempNum);
+        if (tempNum % counter === 0) {
+            tempNum = tempNum / counter;
+            largestFactor = counter;
+        } else {
+            counter++;
+        }
+    }
+    if (tempNum > largestFactor) { // the remainder is a prime number
+        largestFactor = tempNum;
+    }
+    console.log(largestFactor);
+    return largestFactor;
+}
+//------------------------------------------------------------------------------------------
+var ans = largest();
+
+displayDiv.innerHTML = "Question 3: What is the largest prime factor of the number 600851475143 ? <br> Answer: " + ans;
+ 
+
+
+ </script>   
+</body>
+</html>
+

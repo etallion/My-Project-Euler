@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>PE-Q2</title>
+</head>
+<body>
+    
+<div id="displayDiv"></div>
+
+ <script>
+
+//Question 4
+//A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+//Find the largest palindrome made from the product of two 3-digit numbers.
+
+
+var displayDiv = document.getElementById("displayDiv");
+
+//------------------------------------------------------------------------------------------
+function largestPalindrome(){ 
+
+    var num1 = 999;
+    var num2 = 999;
+    var palindromes = [];
+    while(num1 >= 100){
+        while(num2 >= 100){
+            var product = num1 * num2;
+            console.log(product.toString());
+            if(product.toString() === product.toString().split('').reverse().join('')){
+                console.log('num1 =' + num1 + 'num2 =' + num2);
+                palindromes.push(product);
+            }
+            num2--;
+        }
+        num1--;
+        num2 = 999;
+    }
+    return palindromes;
+}
+//------------------------------------------------------------------------------------------
+var arrayOfPalindromes = largestPalindrome();
+var ans = Math.max.apply(null, arrayOfPalindromes);
+
+displayDiv.innerHTML = "Question 4: Find the largest palindrome made from the product of two 3-digit numbers. <br> Answer: " + ans;
+ 
+
+
+ </script>   
+</body>
+</html>
+

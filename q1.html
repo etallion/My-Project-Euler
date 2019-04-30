@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>PE-Q1</title>
+</head>
+<body>
+    
+<div id="displayDiv"></div>
+
+ <script>
+
+var displayDiv = document.getElementById("displayDiv");
+var factors = [3,5];
+var start = 0;
+var end = 1000;
+
+var total = 0;
+var numbersAlreadyCounted = [];
+
+ function sumMultiples(factors, start, end){
+    
+    var totalSum = 0;
+    
+    //perform test for each number, in our example (Question 1) we are evaluating 3 and 5
+    factors.forEach(element => {
+        //loop through and check each number in the range, 
+        //in our example (Question 1) we are evaluating postive numbers below 1000
+        for( var i = start; i < end; i++){
+            //check if index is a multiple by using the modulus with a result of zero
+            if(i % element === 0){
+                //since we are check a list of number, let's make sure we haven't already counted that
+                //number when, for example 15 which is both a multiple of 3 and 5
+                if(!numbersAlreadyCounted.includes(i)){
+                //it's a new number, let's add to total
+                totalSum += i;
+                console.log(i);
+                //add number to the array of already counted
+                numbersAlreadyCounted.push(i);
+                }
+            }
+            }
+    });
+
+    return totalSum;
+ }
+
+total = sumMultiples(factors, start, end);
+
+displayDiv.innerHTML = "Question 1: Find the sum of all the multiples of 3 or 5 below 1000. <br> Answer: " + total;
+ 
+
+ </script>   
+</body>
+</html>
